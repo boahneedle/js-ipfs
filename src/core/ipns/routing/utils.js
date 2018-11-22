@@ -3,5 +3,7 @@
 const multibase = require('multibase')
 
 module.exports.encodeBase32 = (buf) => {
-  return multibase.encode('base32', buf).slice(1) // slice off multibase codec
+  const m = multibase.encode('base32', buf).slice(1)
+
+  return m.toString().toUpperCase() // slice off multibase codec
 }
